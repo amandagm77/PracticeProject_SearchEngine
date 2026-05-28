@@ -1,4 +1,4 @@
-# 📝 Notes Taking App
+# 🖼️ Giphy Search Engine
 
 ## 📌 Description
 
@@ -67,18 +67,10 @@ A website to search for images based on keywords, where results are retrieved by
 
 | Method | Endpoint | Description |
 |--------|--------|-------------|
-| GET | /api/notes | Retrieve all notes |
-| POST | /api/notes | Create a new note |
-| PUT | /api/notes/:id | Update a note |
-| DELETE | /api/notes/:id | Delete a note |
-
----
-
-## 📸 API Testing
-
-Tested API endpoints using Thunder Client in VS Code.
-
-![App Screenshot](assets/screenshotthunderclient.PNG)
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
 
 ---
 
