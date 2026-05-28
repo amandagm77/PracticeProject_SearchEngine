@@ -17,7 +17,7 @@ A website to search for images based on keywords, where results are retrieved by
 
 ---
 
-## ✍ Wireframes
+## ✍ Wireframes (draw.io)
 
 ### First Page
 ![App Screenshot](assets/firstpage.png)
@@ -104,7 +104,7 @@ MiniProject_NotesApp/
 
 * Add Filter Menu
 * Give Option to Change Results per page
-* Include GIF in Results
+* Include Static Images in Results
 
 ---
 

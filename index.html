@@ -10,17 +10,36 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <section>
-    <h1>Giphy Search Engine</h1>
-    <h3>Find images with Giphy Api</h3>
+    <nav>
+        <ul class="menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Trending</a></li>
+            <li><a href="#">Favorites</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+    </nav>
+    <header>
+        <h1>Giphy Search Engine</h1>
+        <h3>Find images with the Giphy API</h3>
+    </header>
+    <section class="search-section">
+        <form id="search-form">
+            <input
+                type="text"
+                id="search-input"
+                placeholder="Enter search here..."
+                required
+            >
+            <button type="submit">
+                Search
+            </button>
+        </form>
     </section>
-    <div>
-    <form>
-    <input type="text" placeholder="Enter Search here...">
-    <button type="submit">Submit</button>
-    </form>
-    </div>
+    <section id="gif-container">
+    </section>
     <script src="js/main.js"></script>
 </body>
-<footer>© 2026 Giphy Search Engine</footer>
+<footer>
+    © 2026 Giphy Search Engine
+</footer>
 </html>
