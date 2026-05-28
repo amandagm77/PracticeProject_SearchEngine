@@ -33,12 +33,13 @@ A website to search for images based on keywords, where results are retrieved by
 ## 📸 Screenshots
 
 ### First Page
-![App Screenshot]()
+![App Screenshot](assets/screenshotfirstpage.png)
 
 ### Results Page (Desktop)
-![App Screenshot]()
+![App Screenshot](assets/screenshotresultspagedesktop.png)
 
 ### Results Page (Mobile)
+![App Screenshot](assets/screenshotresultspagemobile.png)
 
 ---
 
@@ -104,7 +105,9 @@ MiniProject_NotesApp/
 
 * Add Filter Menu
 * Give Option to Change Results per page
-* Include Static Images in Results
+* Loading Spinner
+* Error message
+* Working Links in Nav Bar
 
 ---
 
