@@ -14,7 +14,8 @@ let currentSearchTerm = "";
 let isLoading = false;
 const modal = document.getElementById("modal");
 const modalImage = document.getElementById("modal-image");
-const closeModal =document.getElementById("close-modal");
+const closeModal = document.getElementById("close-modal");
+const favoritesLink = document.getElementById("favorites-link");
 // FORM SUBMIT EVENT
 form.addEventListener("submit", function(event) {
     event.preventDefault();
@@ -85,25 +86,48 @@ async function loadTrendingGifs() {
 }
 // DISPLAY GIFS ON PAGE
 function displayGifs(gifs, isNewSearch = false) {
-    // Loop through each GIF
     gifs.forEach(function(gif) {
-        // Create a div card
+        // Create card
         const gifCard = document.createElement("div");
         gifCard.classList.add("gif-card");
-        // Create image element
+        // Create image
         const gifImage = document.createElement("img");
-        /*
-            Accessing image URL from API data
-            downsized_medium gives a good quality image
-        */
         gifImage.src = gif.images.downsized_medium.url;
         gifImage.alt = gif.title;
-       // Open Modal
+        // Open modal
         gifImage.addEventListener("click", function() {
             modal.classList.remove("hidden");
             modalImage.src = gif.images.original.url;
         });
+        // Favorite button
+        const favoriteButton = document.createElement("button");
+        favoriteButton.textContent = "❤️ Favorite";
+        // Save to localStorage
+        favoriteButton.addEventListener("click", function() {
+            let favorites =
+                JSON.parse(localStorage.getItem("favorites")) || [];
+            const gifData = {
+                id: gif.id,
+                url: gif.images.original.url,
+                title: gif.title
+            };
+            const alreadySaved = favorites.some(
+                item => item.id === gif.id
+            );
+            if (!alreadySaved) {
+                favorites.push(gifData);
+                localStorage.setItem(
+                    "favorites",
+                    JSON.stringify(favorites)
+                );
+                favoriteButton.textContent = "❤️ Saved";
+            } else {
+                favoriteButton.textContent = "✔ Already Saved";
+            }
+        });
+        // Append elements
         gifCard.appendChild(gifImage);
+        gifCard.appendChild(favoriteButton);
         gifContainer.appendChild(gifCard);
     });
 }
@@ -139,5 +163,30 @@ window.addEventListener("scroll", function() {
             searchGiphy(currentSearchTerm, false);
         }
     }, 200);
+});
+// Favorites Render Function
+function loadFavorites() {
+    gifContainer.innerHTML = "";
+    const favorites =
+        JSON.parse(localStorage.getItem("favorites")) || [];
+    if (favorites.length === 0) {
+        errorMessage.textContent = "No favorites saved yet.";
+        return;
+    }
+    favorites.forEach(function(gif) {
+        const gifCard = document.createElement("div");
+        gifCard.classList.add("gif-card");
+        const gifImage = document.createElement("img");
+        gifImage.src = gif.url;
+        gifImage.alt = gif.title;
+        gifCard.appendChild(gifImage);
+        gifContainer.appendChild(gifCard);
+    });
+}
+favoritesLink.addEventListener("click", function(e) {
+    e.preventDefault();
+    // Stop infinite scroll behavior
+    currentSearchTerm = "";
+    loadFavorites();
 });
 loadTrendingGifs();
