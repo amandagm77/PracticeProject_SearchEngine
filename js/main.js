@@ -54,6 +54,21 @@ form.addEventListener("submit", function(event) {
         loader.classList.add("hidden");
     }
 }
+// Trending Function
+async function loadTrendingGifs() {
+    const url =
+        `https://api.giphy.com/v1/gifs/trending?api_key=${API_KEY}&limit=12`;
+    try {
+        loader.classList.remove("hidden");
+        const response = await fetch(url);
+        const data = await response.json();
+        displayGifs(data.data);
+        loader.classList.add("hidden");
+    }
+    catch(error) {
+        console.log(error);
+    }
+}
 // DISPLAY GIFS ON PAGE
 function displayGifs(gifs) {
     // Clear old search results
@@ -77,3 +92,4 @@ function displayGifs(gifs) {
         gifContainer.appendChild(gifCard);
     });
 }
+loadTrendingGifs();
