@@ -7,6 +7,8 @@ const form = document.getElementById("search-form");
 const input = document.getElementById("search-input");
 const gifContainer = document.getElementById("gif-container");
 const loader = document.getElementById("loader");
+const errorMessage = document.getElementById("error-message");
+let offset = 0;
 // FORM SUBMIT EVENT
 form.addEventListener("submit", function(event) {
     // Prevents the page from refreshing
@@ -18,7 +20,6 @@ form.addEventListener("submit", function(event) {
     }
 });
 // FETCH DATA FROM GIPHY API
-async function searchGiphy(searchTerm) {
     /*
         This is the API endpoint URL.
         We are telling Giphy:
@@ -26,22 +27,31 @@ async function searchGiphy(searchTerm) {
         - api_key = our API key
         - limit = number of GIFs
     */
-   // Show Loader
-   loader.classList.remove("hidden");
+   async function searchGiphy(searchTerm) {
+    loader.classList.remove("hidden");
+    errorMessage.textContent = "";
     const url =
         `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${searchTerm}&limit=12`;
     try {
-        // Make the API request
         const response = await fetch(url);
-        // Convert response into JavaScript data
         const data = await response.json();
-        // Send GIF data to display function
+        // RESET container safely
+        gifContainer.innerHTML = "";
+        // Handle empty results FIRST
+        if (data.data.length === 0) {
+            errorMessage.textContent =
+                "No GIFs found. Try another search.";
+            return; // stop function early
+        }
         displayGifs(data.data);
-    // Hide Loader
-    loader.classList.add("hidden");
     }
-    catch(error) {
+    catch (error) {
         console.log("Error fetching GIFs:", error);
+        errorMessage.textContent =
+            "Something went wrong. Please try again.";
+    }
+    finally {
+        loader.classList.add("hidden");
     }
 }
 // DISPLAY GIFS ON PAGE

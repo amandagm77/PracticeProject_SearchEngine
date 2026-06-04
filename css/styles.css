@@ -121,3 +121,9 @@ footer {
         transform: rotate(360deg);
     }
 }
+/* Error Message */
+#error-message {
+    color: #f87171;
+    margin-top: 1rem;
+    font-weight: bold;
+}
