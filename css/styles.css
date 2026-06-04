@@ -95,6 +95,9 @@ footer {
     }
 }
 /* Hide elements */
+#modal.hidden {
+    display: none;
+}
 .hidden {
     display: none;
 }
@@ -126,4 +129,28 @@ footer {
     color: #f87171;
     margin-top: 1rem;
     font-weight: bold;
+}
+/* Modal */
+#modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+#modal-image {
+    max-width: 90%;
+    max-height: 90%;
+}
+#close-modal {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 3rem;
+    cursor: pointer;
 }

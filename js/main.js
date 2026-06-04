@@ -7,8 +7,12 @@ const form = document.getElementById("search-form");
 const input = document.getElementById("search-input");
 const gifContainer = document.getElementById("gif-container");
 const loader = document.getElementById("loader");
+loader.classList.add("hidden");
 const errorMessage = document.getElementById("error-message");
 let offset = 0;
+const modal = document.getElementById("modal");
+const modalImage = document.getElementById("modal-image");
+const closeModal =document.getElementById("close-modal");
 // FORM SUBMIT EVENT
 form.addEventListener("submit", function(event) {
     // Prevents the page from refreshing
@@ -86,10 +90,30 @@ function displayGifs(gifs) {
         */
         gifImage.src = gif.images.downsized_medium.url;
         gifImage.alt = gif.title;
-        // Put image inside card
+       // Open Modal
+        gifImage.addEventListener("click", function() {
+            modal.classList.remove("hidden");
+            modalImage.src = gif.images.original.url;
+        });
         gifCard.appendChild(gifImage);
-        // Put card inside container
         gifContainer.appendChild(gifCard);
     });
 }
+      // Close Modal
+    closeModal.addEventListener("click", function() {
+    modal.classList.add("hidden");
+    modalImage.src = "";
+});
+    modal.addEventListener("click", function(event) {
+    if (event.target === modal) {
+        modal.classList.add("hidden");
+        modalImage.src = "";
+    }
+});
+    document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") {
+        modal.classList.add("hidden");
+        modalImage.src = "";
+    }
+});
 loadTrendingGifs();
