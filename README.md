@@ -173,7 +173,7 @@ PracticeProject_SearchEngine/
 
 ## 🌐 Live Demo
 
-* GitHub Pages
+https://amandagm77.github.io/PracticeProject_SearchEngine/
 
 ---
 
