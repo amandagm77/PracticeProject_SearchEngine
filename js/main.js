@@ -6,6 +6,7 @@ const API_KEY = "7NjwF4i6A4s8amz6wfq4RoPU0xEKaSDz";
 const form = document.getElementById("search-form");
 const input = document.getElementById("search-input");
 const gifContainer = document.getElementById("gif-container");
+const loader = document.getElementById("loader");
 // FORM SUBMIT EVENT
 form.addEventListener("submit", function(event) {
     // Prevents the page from refreshing
@@ -25,6 +26,8 @@ async function searchGiphy(searchTerm) {
         - api_key = our API key
         - limit = number of GIFs
     */
+   // Show Loader
+   loader.classList.remove("hidden");
     const url =
         `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${searchTerm}&limit=12`;
     try {
@@ -34,6 +37,8 @@ async function searchGiphy(searchTerm) {
         const data = await response.json();
         // Send GIF data to display function
         displayGifs(data.data);
+    // Hide Loader
+    loader.classList.add("hidden");
     }
     catch(error) {
         console.log("Error fetching GIFs:", error);
