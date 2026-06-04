@@ -18,6 +18,9 @@ A website to search for images based on keywords, where results are retrieved by
 * Receives and parses the response
 * Displays images on the page from that response
 * Uses a custom CSS grid to display the images
+* Clicks to enlarge images in Modal
+* Mark images as Favorites and view in Favorites page
+* View the Trending images
 * Ensures responsiveness so it displays properly on both desktop and mobile
 
 ---
@@ -58,7 +61,7 @@ A website to search for images based on keywords, where results are retrieved by
 
 ## 🛠️ Technologies Used
 
-### Frontend
+### Front-End
 
 * HTML5
 * CSS3
@@ -108,7 +111,7 @@ This project uses the GIPHY Search API to retrieve GIFs based on user-entered ke
 | Method | Endpoint                                 | Description                               |
 | ------ | ---------------------------------------- | ----------------------------------------- |
 | GET    | `https://api.giphy.com/v1/gifs/search`   | Retrieves GIFs based on a search keyword  |
-| GET    | `https://api.giphy.com/v1/gifs/trending` | (Planned Feature) Retrieves trending GIFs |
+| GET    | `https://api.giphy.com/v1/gifs/trending` | Retrieves trending GIFs                   |
 
 ### Example Request
 
@@ -154,7 +157,7 @@ PracticeProject_SearchEngine/
 * Dynamically rendering content using DOM manipulation
 * Building responsive layouts using CSS Grid and media queries
 * Improving mobile responsiveness and cross-device compatibility
-* Structuring frontend projects using separate HTML, CSS, and JavaScript files
+* Structuring front-end projects using separate HTML, CSS, and JavaScript files
 
 ---
 
@@ -162,12 +165,9 @@ PracticeProject_SearchEngine/
 
 * Add category and rating filters
 * Allow users to select the number of results displayed
-* Add loading spinner during API requests
-* Display custom error messages for failed searches
-* Add fully functional navigation links
-* Implement a favorites system using localStorage
-* Add infinite scrolling for continuous results
-* Add modal popups for enlarged GIF viewing
+* Modal next/previous navigation
+* Favorite toggle (heart fill/unfill)
+* Remove from favorites button
 
 ---
 

@@ -61,25 +61,55 @@ button {
 button:hover {
     background-color: #2563eb;
 }
-/* Results Section */
+/* Main Content Layout */
+main {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+/* GIF Grid */
 #gif-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* Responsive columns */
+    grid-template-columns:
+        repeat(auto-fit, minmax(160px, 1fr));
     gap: 1rem;
-    padding: 2rem;
+    padding: 1rem;
 }
+/* Individual GIF Card */
 .gif-card {
     background-color: #1f2937;
-    border-radius: 12px;
+    border-radius: 14px;
     overflow: hidden;
-    transition: transform 0.2s ease;
+    position: relative;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+    box-shadow:
+        0 4px 10px rgba(0,0,0,0.3);
 }
+/* Hover Effect */
 .gif-card:hover {
-    transform: scale(1.03);
+    transform: translateY(-5px);
+    box-shadow:
+        0 8px 20px rgba(0,0,0,0.5);
 }
+/* Uniform GIF Sizing */
 .gif-card img {
+    aspect-ratio: 1 / 1;
     width: 100%;
+    height: 180px;
+    object-fit: cover;
     display: block;
+}
+/* Favorite Button */
+.gif-card button {
+    width: 100%;
+    border-radius: 0;
+    background-color: #2563eb;
+}
+.gif-card button:hover {
+    background-color: #1d4ed8;
 }
 footer {
     padding: 2rem;
@@ -153,4 +183,27 @@ footer {
     right: 30px;
     font-size: 3rem;
     cursor: pointer;
+}
+#back-to-top {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1rem 1.6rem;
+    border-radius: 999px;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    transition: all 0.2s ease;
+    z-index: 999;
+}
+#back-to-top:hover {
+    background-color: #2563eb;
+    transform: translateX(-50%) translateY(-3px);
+}
+.hidden {
+    display: none;
 }

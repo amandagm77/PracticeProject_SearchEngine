@@ -13,10 +13,10 @@
     <!-- Navigation Bar -->
     <nav>
         <ul class="menu">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Trending</a></li>
+            <li><a href="#" id="home-link">Home</a></li>
+            <li><a href="#" id="trending-link">Trending</a></li>
             <li><a href="#" id="favorites-link">Favorites</a></li>
-            <li><a href="#">About</a></li>
+            <li><a href="#" id="about-link">About</a></li>
         </ul>
     </nav>
     <!-- Header -->
@@ -45,17 +45,20 @@
     </div>
     <!-- Error Message -->
      <p id="error-message"></p>
-    <!-- Results Section -->
-    <section id="gif-container">
-    </section>
+    <!-- Main Content Area -->
+    <main id="gif-container">
+    </main>
     <!-- Modal -->
-<div id="modal" class="hidden">
+    <div id="modal" class="hidden">
     <span id="close-modal">&times;</span>
     <img id="modal-image">
-</div>
+    </div>
+    <button id="back-to-top" class="hidden">
+    ↑ Back to Top
+    </button>
     <script src="js/main.js"></script>
-</body>
 <footer>
     © 2026 Giphy Search Engine
 </footer>
+</body>
 </html>
