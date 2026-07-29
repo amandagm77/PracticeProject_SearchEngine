@@ -1,6 +1,4 @@
 // GIPHY SEARCH ENGINE
-// Giphy API key
-const API_KEY = "7NjwF4i6A4s8amz6wfq4RoPU0xEKaSDz";
 
 // ELEMENTS
 const form = document.getElementById("search-form");

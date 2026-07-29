@@ -86,7 +86,7 @@ git clone https://github.com/your-username/giphy-search-engine.git
 3. Create a free API key from GIPHY Developers:
    https://developers.giphy.com/
 
-4. Add your API key inside `main.js`:
+4. Follow `config.example.js` and add your API key inside `config.js`:
 
 ```javascript
 const API_KEY = "YOUR_API_KEY_HERE";
@@ -142,6 +142,8 @@ PracticeProject_SearchEngine/
 │── css/
 │    ├── styles.css
 │── js/
+|    ├── config.js
+|    ├── config.example.js
 │    ├── main.js
 │── index.html
 │── README.md
